@@ -27,4 +27,15 @@ public class ProductServiceImpl implements ProductService{
     {
         pr.deleteById(id);
     }
+
+    public void updateProduct(int id, Product product)
+    {
+        Product existingProduct = pr.findById(id).orElseThrow(() -> new RuntimeException("Product not found with id: " + id));
+        if (product.getName() != null) {existingProduct.setName(product.getName());}
+        if (product.getBrand() != null) {existingProduct.setBrand(product.getBrand());}
+        if (product.getCategory() != null) {existingProduct.setCategory(product.getCategory());}
+        if (product.getDescription() != null) {existingProduct.setDescription(product.getDescription());}
+        if (product.getBrand() != null) {existingProduct.setBrand(product.getBrand());}
+        pr.save(existingProduct);
+    }
 }
