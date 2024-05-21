@@ -22,4 +22,9 @@ public class ProductServiceImpl implements ProductService{
     {
         return pr.findAll();
     }
+    
+    public void deleteProduct(int id)
+    {
+        pr.deleteById(id);
+    }
 }
